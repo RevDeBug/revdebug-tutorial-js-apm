@@ -1,0 +1,23 @@
+{
+    ".server": {
+        "application": "Vue Query Example Server",
+        "apm":         true,
+        "target":      "node",
+        "logging":     "debug",
+        "files":       "server.js"
+    },
+
+    ".client": {
+        "application": "Vue Query Example Client",
+        "apm":         true,
+        "vueErrors":   true,
+        "target":      "web",
+        "type":        "module",
+        "logging":     "debug",
+        "sourceMap":   true,
+        "excludeInst": ["require", "require.**"],    // magical webpack function must not be instrumented
+        "path":        "src",
+        "files":       "**/*.{js,vue}",
+        "index":       "index.html"
+    }
+}

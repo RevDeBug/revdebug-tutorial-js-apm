@@ -1,0 +1,17 @@
+version: "2.1"
+
+services:
+  mysql:
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+      - 3306:3306
+    volumes:
+      - ./init-mysql:/docker-entrypoint-initdb.d
+    image: "mysql:latest"
+    networks:
+      - host
+
+networks:
+  host:
