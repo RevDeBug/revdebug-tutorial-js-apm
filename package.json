@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "revdebug-tutorial-js-apm",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
