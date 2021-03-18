@@ -14,7 +14,7 @@ Install dependancies:
 
 Add RevDeBug:
 
-    npm install revdebug
+    npm install @revdebug/revdebug
 
 \* Note: Before instrumenting you may need to change the "host" (and maybe "port" / "webPort") fields in "revdebug.json" or specify different values on the command line if you are not running the record server locally.
 
@@ -28,6 +28,7 @@ Or instrument passing different host:
 
 Add Cypress integration snippet to cypress/support/index.js file:
 
+```javascript
   Cypress.on('fail', (error) => {
       // reference application under test iframe
       var innerWin = window.parent.document.getElementsByClassName("aut-iframe")[0];
@@ -38,7 +39,7 @@ Add Cypress integration snippet to cypress/support/index.js file:
       // rethrow modified error
       throw error;
   });
-
+```
 
 Run the mysql server:
 
