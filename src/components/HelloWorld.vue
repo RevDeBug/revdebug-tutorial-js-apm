@@ -29,13 +29,11 @@
       }
 
       const send = (evt) => {
-        // axios.get({
-        //   url:          `http://localhost:5000?q=${encodeURI(query.value)}`,
-        //   responseType: 'text',
-        // }).then(res => {
-        //   console.log('... response:', res)
+        // axios.get(`http://localhost:5000?q=${encodeURI(query.value)}`).then(res => {
+        //   result.value = JSON.stringify(res.data);
         // });
-        axios.get(`http://localhost:5000?q=${encodeURI(query.value)}`).then(res => {
+
+        axios.post('http://localhost:5000', {query: query.value}).then(res => {
           result.value = JSON.stringify(res.data);
         });
       }

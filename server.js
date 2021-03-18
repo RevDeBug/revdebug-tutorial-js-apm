@@ -10,14 +10,18 @@
 //   // maxBufferSize: 1000,
 // });
 
-const express = require('express');
-const mysql   = require('mysql');
-const cors    = require('cors');
-const app     = express();
+const express    = require('express');
+const mysql      = require('mysql');
+const cors       = require('cors');
+const bodyParser = require('body-parser');
+
+const app        = express();
 
 app.use(cors());
+app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
 
-const conn    = mysql.createConnection({
+const conn  = mysql.createConnection({
   host:         'localhost',
   user:         'root',
   password:     'root',
@@ -25,8 +29,20 @@ const conn    = mysql.createConnection({
   insecureAuth: true,
 });
 
-app.get('/', function (req, res, next) {
-  conn.query(req.query.q, function (error, results, fields) {
+// app.get('/', function (req, res, next) {
+//   conn.query(req.query.q, function (error, results, fields) {
+//     if (error)
+//       next(error);
+
+//     else {
+//       res.set('content-type', 'text/plain');
+//       res.end(JSON.stringify(results));
+//     }
+//   });
+// });
+
+app.post('/', function (req, res, next) {
+  conn.query(req.body.query, function (error, results, fields) {
     if (error)
       next(error);
 
