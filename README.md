@@ -1,4 +1,4 @@
-## REVDEBUG Cypress Integrtion tutorial
+## REVDEBUG Cypress Integration tutorial
 
 The following application is a simple web based sql console with few Cypress end-to-end tests.
 The third one test fails because the latest changes in the application. Follow the instructions below to add RevDeBug module, insert the Cypress integration snipped and run the tests. 
@@ -25,12 +25,14 @@ Next create revdebug.json configuration file to configure both of the server and
       "logging": "info",
 
       ".server": {
+          // name of the application
           "application": "Vue Query Example Server",
           "target":      "node",
           "files":       "server.js"
       },
 
       ".client": {
+          // name of the application
           "application": "Vue Query Example Client",
           "vueErrors":   true,
           "target":      "web",
@@ -40,6 +42,10 @@ Next create revdebug.json configuration file to configure both of the server and
           "excludeInst": ["require", "require.**"],
           "path":        "src",
           "files":       "**/*.{js,vue}",
+          // RevDeBug will inject itself into this application startup html file
+          // that's why it can work as a dev dependency - a necessary step
+          // for Vue/React/etc web applications that make translation of dependencies
+          // to web-friendly versions.
           "index":       "index.html"
       }
   }
