@@ -12,11 +12,38 @@ Install dependancies:
 
     npm install
 
-Add RevDeBug:
+Add RevDeBug (as it is a frontend vue and nodejs backend application mingled together we'll add it as development dependency):
 
-    npm install @revdebug/revdebug
+    npm install @revdebug/revdebug --save-dev
 
 \* Note: Before instrumenting you may need to change the "host" (and maybe "port" / "webPort") fields in "revdebug.json" or specify different values on the command line if you are not running the record server locally.
+
+Next create revdebug.json configuration file to configure both of the server and frontend parts of the project:
+```javascript
+{
+      "apm":     true,
+      "logging": "info",
+
+      ".server": {
+          "application": "Vue Query Example Server",
+          "target":      "node",
+          "files":       "server.js"
+      },
+
+      ".client": {
+          "application": "Vue Query Example Client",
+          "vueErrors":   true,
+          "target":      "web",
+          "type":        "module",
+          "sourceMap":   true,
+          // magical webpack function must not be instrumented
+          "excludeInst": ["require", "require.**"],
+          "path":        "src",
+          "files":       "**/*.{js,vue}",
+          "index":       "index.html"
+      }
+  }
+```
 
 Normal instrument:
 
