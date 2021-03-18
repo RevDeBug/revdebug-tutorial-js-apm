@@ -42,7 +42,7 @@ const translation_table = [{from: /select/,   to:"SELECT"},
        translation_table.forEach((item) => {
            post_query = post_query.replace(item.from, item.to);
        });
-       axios.get(`http://localhost:5000?q=${encodeURI(post_query)}`).then(res => {
+       axios.post(`http://localhost:5000`, {query:post_query}).then(res => {
           result.value = JSON.stringify(res.data);
         });
       }

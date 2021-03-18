@@ -16,8 +16,8 @@ const conn    = mysql.createConnection({
   insecureAuth: true,
 });
 
-app.get('/', function (req, res, next) {
-  conn.query(req.query.q, function (error, results, fields) {
+app.post('/', function (req, res, next) {
+  conn.query(req.body.query, function (error, results, fields) {
     if (error)
       next(error);
 
