@@ -1,21 +1,12 @@
 #!/usr/bin/env node
 
-// const {default: Agent, ContextManager} = require('@revdebug/skywalking');
-
-// Agent.start({  // not necessary with REVDEBUG_APM=1
-//   serviceName: 'client',
-//   // serviceInstance: '',
-//   // collectorAddress: '',
-//   // authorization: '',
-//   // maxBufferSize: 1000,
-// });
-
 const express = require('express');
 const mysql   = require('mysql');
 const cors    = require('cors');
 const app     = express();
 
 app.use(cors());
+app.use(express.json()); // support json encoded bodies
 
 const conn    = mysql.createConnection({
   host:         'localhost',

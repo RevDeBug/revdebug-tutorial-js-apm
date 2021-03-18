@@ -1,20 +1,14 @@
 <template>
-  <HelloWorld />
+  <SimpleSQLClient />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SimpleSQLClient from './components/SimpleSQLClient.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SimpleSQLClient
   }
 }
 </script>
-
-<style scoped>
-  img {
-    width: 5em;
-  }
-</style>
