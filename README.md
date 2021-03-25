@@ -16,8 +16,6 @@ Resulting trace ID from a failed test can be used to find the exact trace and co
 
     npm install @revdebug/revdebug --save-dev
 
-\* Note: Before instrumenting you may need to change the "host" (and maybe "port" / "webPort") fields in "revdebug.json" or specify different values on the command line if you are not running the record server locally.
-
 ## Next create revdebug.json configuration file to configure both of the server and frontend parts of the project:
 
 ```javascript
