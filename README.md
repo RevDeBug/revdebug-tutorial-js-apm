@@ -1,4 +1,4 @@
-# REVDEBUG Cypress Integration tutorial
+# RevDeBug Cypress Integration tutorial
 
 The following application is a simple web based sql console with few Cypress end-to-end tests.
 The third test will fail caused by some latest changes to the application. Follow the instructions below to add RevDeBug module, insert the Cypress integration snipped and run the tests. 
