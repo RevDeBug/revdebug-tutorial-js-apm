@@ -81,6 +81,6 @@ Resulting trace ID from a failed test can be used to find the exact trace and co
 
 ## Now you can run Cypress test runner and execute tests in their order:
 
-   npx cypress open
+    npx cypress open
 
 The third test should fail and return a trace id that can be corellated in the RevDeBug Server interface.
