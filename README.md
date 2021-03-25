@@ -1,8 +1,10 @@
 # REVDEBUG Cypress Integration tutorial
 
 The following application is a simple web based sql console with few Cypress end-to-end tests.
-The third one test fails because the latest changes in the application. Follow the instructions below to add RevDeBug module, insert the Cypress integration snipped and run the tests. 
-Resulting trace ID from a failed test can be used to find the exact trace and code execution recording on the RevDeBug server interface.
+The third test will fail caused by some latest changes to the application. Follow the instructions below to add RevDeBug module, insert the Cypress integration snipped and run the tests. 
+Resulting trace ID included in the failed test results can be used to find the exact trace and code execution recording using the RevDeBug server web interface.
+
+A prerequisite for this follow along tutorial is a working RevDeBug Server instance running, please refer to user manual at: https://revdebug.gitbook.io/revdebug/installing-revdebug-server#setting-up-revdebug-server-instance
 
 ## Configure RevDeBug repository:
 
