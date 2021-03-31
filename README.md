@@ -56,19 +56,14 @@ A prerequisite for this follow along tutorial is a working RevDeBug Server insta
 
     npx revd --host your_record_server.com
 
-## Add Cypress integration snippet to cypress/support/index.js file:
+## Add Cypress integration module
+
+    npm install @revdebug/cypress-plugin-revdebug --save-dev
+
+## Activate Cypress integration by adding single line of code into cypress/support/index.js file:
 
 ```javascript
-  Cypress.on('fail', (error) => {
-      // reference application under test iframe
-      var innerWin = window.parent.document.getElementsByClassName("aut-iframe")[0];
-      if (innerWin && innerWin.contentWindow.revdebug) { 
-          error.message = '(RevDeBug trace: '+ innerWin.contentWindow.revdebug.lastBadTraceId +' )\n\n'
-              + error.message;
-      }
-      // rethrow modified error
-      throw error;
-  });
+   require('@revdebug/cypress-plugin-revdebug')
 ```
 
 ## Run the mysql server:
